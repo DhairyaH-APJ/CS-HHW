@@ -1,0 +1,13 @@
+#titlee{
+    color: blue;
+    display: grid;
+    place-items: center;
+    
+}
+#todolist{
+    display: grid;
+    place-items: center;
+}
+#submitbutton{
+    color:brown;
+}
