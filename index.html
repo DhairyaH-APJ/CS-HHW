@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Lot Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Parking Lot System</h1>
+            <p id="summary">Loading...</p>
+        </div>
+        <div class="toolbar">
+            <button id="btn-add-floor" class="primary">+ Add floor</button>
+            <button id="btn-park">Park a vehicle</button>
+            <button id="btn-refresh">Refresh</button>
+        </div>
+    </header>
+
+    <p id="msg" hidden></p>
+    <main id="floors"></main>
+
+    <!-- Add floor / edit capacity -->
+    <dialog id="floor-dialog">
+        <form id="floor-form">
+            <h2 id="floor-title">Add floor</h2>
+            <label>Floor number <input id="f-number" type="number" required></label>
+            <label>Maximum capacity (vehicles) <input id="f-capacity" type="number" min="1" required></label>
+            <p class="error" id="floor-error" hidden></p>
+            <div class="actions">
+                <button type="button" data-close>Cancel</button>
+                <button type="submit" class="primary">Save</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Park / edit vehicle -->
+    <dialog id="vehicle-dialog">
+        <form id="vehicle-form">
+            <h2 id="vehicle-title">Park a vehicle</h2>
+            <label>Floor <select id="v-floor" required></select></label>
+            <label>Number plate <input id="v-plate" maxlength="20" required></label>
+            <label>Vehicle type
+                <input id="v-type" list="types" maxlength="30" required>
+                <datalist id="types"><option>Car</option><option>Bike</option><option>SUV</option><option>Van</option><option>Truck</option></datalist>
+            </label>
+            <label>Colour <input id="v-colour" maxlength="30" required></label>
+            <label>Brand <input id="v-brand" maxlength="50" required></label>
+            <label>Model <input id="v-model" maxlength="50" required></label>
+            <p class="error" id="vehicle-error" hidden></p>
+            <div class="actions">
+                <button type="button" data-close>Cancel</button>
+                <button type="submit" class="primary">Save</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
